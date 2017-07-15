@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
 	<head>
 		<title>MiPal</title>
@@ -6,102 +6,55 @@
 		<style>
 			body {
 				margin: 0;
-				background: #00c6ff;  /* fallback for old browsers */
-				height: 100vh;
-				font-family: sans-serif; 
+				background: #f1f1f1;
 			}
-			button, .rectbtn {
-				background: rgba(0, 0, 0, 0.2);
-				height: 70px;
-				width: 70px;
-				border: none;
-				border-radius: 50%;
-				color: #ffffff;
-				font-size: 40px;
-				margin-left: 20px;
-				outline: none;
-			}
-			#navport {
+			#seleport {
 				position: fixed;
-				top: 20px;
-			}
-			#selport {
-				position: fixed;
-				bottom: 20px;
+				bottom: 0;
 				width: 100%;
-			}
-			#chatport {
-				background: rgba(0, 0, 0, 0.6);
-				padding: 13px;
-				width: 100%;
-				text-align: left;
-			}
-			.rectbtn {
-				border-radius: 5px;
-				font-size: 20px;
-				background: #00c6ff;
-				color: white;
-				height: 30px;
+				padding: 7px 0px 7px 0px;
+				background: #ffffff;
+				box-shadow: 0 1px 1px 0 rgba(0,0,0,0.14), 0 2px 1px -1px rgba(0,0,0,0.12), 0 1px 3px 0 rgba(0,0,0,0.2);
 			}
 			#mescon {
-				font-size: 20px;
-				padding: 5px;
 				background: #ffffff;
 				border: none;
-				border-radius: 5px;
-				width: 40%;
+				-webkit-appearance: none;
+				font-size: 18px;
+				margin-left: 10px;
+				outline: none;
+				width: 70%;
 			}
-			#messhou {
-				margin-top: 140px;
-			}
-			#mes {
-				width: 45%;
-				margin-left: auto;
-				margin-right: 25px;
-				border-radius: 5px;
-				text-align: left;
-				padding: 3px 3px 3px 3px;
-				background: #2af100;
-				box-shadow: 0px 2px 5px #888888;
-				margin-top: 10px;
-			}
-			#mescons {
-				margin-right: 30px;
-			}
-			img {
-				margin :5px;
+			button, .btn {
+				font-size: 18px;
+				border: solid;
+				border-width: 1px;
+				border-color: #c4c2c5;
+				background: #adabae;
+				color: #ffffff;
+				font-weight: bold;
+				border-radius: 4px;
+				transition: 0.2s;
+				-webkit-transition: 0.2s;
 			}
 		</style>
 	</head>
 	<body>
-		<div id="messhou">
-		</div>
-		<div id="navport">
-			<button id="navbtn">≡</button>
-		</div>
-		<div id="aiport"></div>
-		<div id="selport">
-			<button id="chatbtn" onclick="chatmode()"><img src="https://raw.githubusercontent.com/Prazma/mipal/master/btn/chatbtn.pnghttps://raw.githubusercontent.com/Prazma/mipal/master/btn/chatbtn.png" width="30px" height="30px"></button>
-			<button id="stampbtn"><img src="https://raw.githubusercontent.com/Prazma/mipal/master/btn/stampbtn.png" width="30px" height="30px"></button>
-			<button id="toolbtn"><img src="https://raw.githubusercontent.com/Prazma/mipal/master/btn/toolbtn.png" width="30px" height="30px"></button>
-		</div>
-		<script>
-			function chatmode() {
-				document.getElementById("selport").style.bottom = "0";
-				document.getElementById("selport").innerHTML = '<div id="chatport"><form action="javascript:sendmes()"><input id="mescon" placeholder="メッセージを入力"><input type="submit" value="送信" class="rectbtn"><button class="rectbtn" onclick="bckinit()">戻る</button></form></div>';
-			}
-			function bckinit() {
-				document.getElementById("selport").style.bottom = "20px";
-				document.getElementById("selport").innerHTML = '<button id="chatbtn" onclick="chatmode()"><img src="https://raw.githubusercontent.com/Prazma/mipal/master/btn/chatbtn.pnghttps://raw.githubusercontent.com/Prazma/mipal/master/btn/chatbtn.png" width="30px" height="30px"></button><button id="stampbtn"><img src="https://raw.githubusercontent.com/Prazma/mipal/master/btn/stampbtn.png" width="30px" height="30px"></button><button id="toolbtn"><img src="https://raw.githubusercontent.com/Prazma/mipal/master/btn/toolbtn.png" width="30px" height="30px"></button>';
-			}
-			function sendmes() {
-				if( sendmes == "") {
-				} else {
-					var mescon = document.getElementById("mescon").value;
-					document.getElementById("mescon").value = "";
-					document.getElementById("messhou").innerHTML += '<div id="mes"><img src="https://cdn1.iconfinder.com/data/icons/user-pictures/100/unknown-512.png" height="30px";><span style="margin-left: 10px">' + mescon + '</span></div>';
+		<div id="seleport">
+			<input type="text" id="mescon" onkeyup="sendcap()" placeholder="メッセージを入力">
+			<input type="submit" value="送信" class="btn" id="sendmescon" onclick="sendinit()">
+			<script>
+				function sendcap() {
+					var capvar = document.getElementById("mescon").value;
+					if( capvar.length > 0) {
+						document.getElementById("sendmescon").style.background = "#1578d1";
+						document.getElementById("sendmescon").style.borderColor = "#73a5d0";
+					} else {
+						document.getElementById("sendmescon").style.background = "#adabae";
+						document.getElementById("sendmescon").style.borderColor = "#c4c2c5";
+					}
 				}
-			}
-		</script>
+			</script>
+		</div>
 	</body>
 </html>
