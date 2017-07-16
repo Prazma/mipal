@@ -92,6 +92,9 @@
 				function sendinit() {
 					var capvar = document.getElementById("mescon").value;
 					document.getElementById("mescon").value = "";
+					document.getElementById("sendmescon").style.background = "#adabae";
+					document.getElementById("sendmescon").style.borderColor = "#c4c2c5";
+					document.getElementById("sendmescon").disabled = true;
 					document.getElementById("mesdock").innerHTML = capvar;
 					document.getElementById("messhou").style.opacity = "1";
 					document.getElementById("mes").style.boxShadow = "4px 4px 8px #888888";
