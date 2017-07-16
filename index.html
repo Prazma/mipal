@@ -40,19 +40,26 @@
 				-webkit-appearance: none;
 			}
 			#messhou {
-				margin-top: 140px;
+				position: fixed;
+				top: 20px;
+				width: 100%;
+				opacity: 0;
+				transition: 0.2s;
+				-webkit-transition: 0.2s;
 			}
 			#mes {
-				width: 45%;
+				width: 80%;
 				margin-left: auto;
 				margin-right: 25px;
 				border-radius: 5px;
 				text-align: left;
 				padding: 3px 3px 3px 3px;
 				background: #73a5d0;
-				box-shadow: 0px 2px 5px #888888;
 				margin-top: 10px;
 				color: #ffffff;
+				font-size: 30px;
+				transition: 1s;
+				-webkit-transition: 1s;
 			}
 			#mescons {
 				margin-right: 30px;
@@ -63,7 +70,9 @@
 		</style>
 	</head>
 	<body>
-		<div id="messhou"></div>
+		<div id="messhou">
+			<div id="mes"><img src="https://cdn1.iconfinder.com/data/icons/user-pictures/100/unknown-512.png" height="50px";><span style="margin-left: 10px" id="mesdock"></span></div>
+		</div>
 		<div id="seleport">
 			<input type="text" id="mescon" onkeyup="sendcap()" placeholder="メッセージを入力">
 			<input type="submit" value="送信" class="btn" id="sendmescon" onclick="sendinit()">
@@ -83,7 +92,9 @@
 				function sendinit() {
 					var capvar = document.getElementById("mescon").value;
 					document.getElementById("mescon").value = "";
-					document.getElementById("messhou").innerHTML += '<div id="mes"><img src="https://cdn1.iconfinder.com/data/icons/user-pictures/100/unknown-512.png" height="30px";><span style="margin-left: 10px">' + capvar + '</span></div>';
+					document.getElementById("mesdock").innerHTML = capvar;
+					document.getElementById("messhou").style.opacity = "1";
+					document.getElementById("mes").style.boxShadow = "4px 4px 8px #888888";
 				}
 			</script>
 		</div>
