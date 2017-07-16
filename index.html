@@ -72,9 +72,11 @@
 					if( capvar.length > 0) {
 						document.getElementById("sendmescon").style.background = "#1578d1";
 						document.getElementById("sendmescon").style.borderColor = "#73a5d0";
+						document.getElementById("sendmescon").disabled = false;
 					} else {
 						document.getElementById("sendmescon").style.background = "#adabae";
 						document.getElementById("sendmescon").style.borderColor = "#c4c2c5";
+						document.getElementById("sendmescon").disabled = true;
 					}
 				}
 				function sendinit() {
