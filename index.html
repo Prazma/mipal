@@ -141,7 +141,7 @@
 			<div id="mai"><div id="aivis"></div><span style="margin-left: 10px" id="mesplug">...</span></div>
 		</div>
 		<div id="seleport">
-			<input type="text" id="mescon" onkeyup="sendcap()" onfocus="myFunction()" onblur="blurFunct(this)" placeholder="メッセージを入力">
+			<input type="text" id="mescon" onkeyup="sendcap()" placeholder="メッセージを入力">
 			<input type="submit" value="送信" class="btn" id="sendmescon" onclick="sendinit()">
 			<script>
 				setTimeout( function () {
@@ -150,12 +150,6 @@
 				setTimeout( function () {
 					document.getElementById("intpan").style.opacity = "1";
 				}, 1000)
-				function myFunction() {
-					document.getElementById("seleport").style.bottom = "300px";
-				}
-				function blurFunct() {
-					document.getElementById("seleport").style.bottom = "0px";	
-				}
 				function sendcap() {
 					var capvar = document.getElementById("mescon").value;
 					if( capvar.length > 0) {
