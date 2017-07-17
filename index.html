@@ -118,7 +118,7 @@
 				-webkit-transition: 1s;
 			}
 			#intpan {
-				font-size: 20px;
+				font-size: 15px;
 				opacity: 0;
 				transition: 1s;
 				-webkit-transition: 1s;
@@ -133,13 +133,14 @@
 	<body>
 		<div id="di">
 		<div id="aiport"></div><br>
-		<span id="intpan">悩み事、相談したいこと、または雑談をしましょう！</span></div>
+		<span id="intpan">悩み事、相談したいこと、または雑談をしましょう！<br>メッセージを送信してスタート</span></div>
 		<div id="messhou"> 
 			<div id="mes"><img src="https://cdn1.iconfinder.com/data/icons/user-pictures/100/unknown-512.png" height="50px";><br><span style="margin-left: 10px" id="mesdock"></span></div>
 		</div>
 		<div id="mesai">
 			<div id="mai"><div id="aivis"></div><span style="margin-left: 10px" id="mesplug">...</span></div>
 		</div>
+		<div id="readmeass" style="display: none"></div>
 		<div id="seleport">
 			<input type="text" id="mescon" onkeyup="sendcap()" placeholder="メッセージを入力">
 			<input type="submit" value="送信" class="btn" id="sendmescon" onclick="sendinit()">
@@ -165,6 +166,7 @@
 				function sendinit() {
 					var capvar = document.getElementById("mescon").value;
 					document.getElementById("mescon").value = "";
+					document.getElementById("readmeass").innerHTML = capvar;
 					document.getElementById("sendmescon").style.background = "#adabae";
 					document.getElementById("sendmescon").style.borderColor = "#c4c2c5";
 					document.getElementById("sendmescon").disabled = true;
@@ -177,6 +179,7 @@
 						document.getElementById("mai").style.width = "80%";
 					}, 500)
 					setTimeout( function () {
+						aiplug();
 						document.getElementById("mesdock").innerHTML = capvar;
 						document.getElementById("messhou").style.opacity = "1";
 						document.getElementById("di").style.opacity = "0";
@@ -184,6 +187,238 @@
 						document.getElementById("mes").style.boxShadow = "4px 4px 8px #888888";
 						document.getElementById("mai").style.boxShadow = "4px 4px 8px #888888";
 					}, 1000)
+				}
+				function aiplug() {
+					var anacon = document.getElementById("readmeass").innerHTML;
+					var logik;
+					var osnik = [];
+					if(anacon.search("こんにちは") > -1 || anacon.search("こんばんわ") > -1 || anacon.search("おはようございます") > -1 || anacon.search("こんばんは") > -1 || anacon.search("ハロー") > -1 || anacon.search("ヤッホー") > -1) {
+						logik = Math.floor((Math.random() * 10) + 1);
+						if(logik == 1 ){
+							osnik.push("こんにちは！いい天気ですね。");
+						}
+						if(logik == 2 ){
+							osnik.push("こんにちは！よろしくお願いします。");
+						}
+						if(logik == 3 ){
+							osnik.push("こんにちは！元気ですか？");
+						}
+						if(logik == 4 ){
+							osnik.push("こんにちは！これからよろしくおねがいします。");
+						}
+						if(logik == 5 ){
+							osnik.push("こんにちは！");
+						}
+						if(logik == 6 ){
+							osnik.push("こんにちは、お元気ですか？");
+						}
+						if(logik == 7 ){
+							osnik.push("こんにちは！具合はどうですか？");
+						}
+						if(logik == 8 ){
+							osnik.push("こんにちは！よろしくおねがいします。");
+						}
+						if(logik == 9 ){
+							osnik.push("こんにちは！よろしく☆");
+						}
+						if(logik == 10 ){
+							osnik.push("こんにちは！今日は良い一日ですか？");
+						}
+					};
+					if(anacon.search("学校") > -1 || anacon.search("がっこう") > -1) {
+						logik = Math.floor((Math.random() * 10) + 1);
+						if(logik == 1 ){
+							osnik.push("友達との喧嘩ですか？");
+						}
+						if(logik == 2 ){
+							osnik.push("人間関係についてですか？");
+						}
+						if(logik == 3 ){
+							osnik.push("休みの方が良いですよね☆");
+						}
+						if(logik == 4 ){
+							osnik.push("ずっとゴールデンウィークの方がいいよね？");
+						}
+						if(logik == 5 ){
+							osnik.push("今日こそいこう！");
+						}
+						if(logik == 6 ){
+							osnik.push("友達は他人に気を使えばできるよ☆");
+						}
+						if(logik == 7 ){
+							osnik.push("友達は量より質！無理に友達にならなくてよし！");
+						}
+						if(logik == 8 ){
+							osnik.push("学校生活は単純なものだよ！嫌なことをされたら、嫌なことをした人を空気扱いすればよし！それか、「それ、関係ある？」とか「だから何？」て返事すればよし！できれば無視！");
+						}
+						if(logik == 9 ){
+							osnik.push("学校、楽しい？楽しくない？");
+						}
+						if(logik == 10 ){
+							osnik.push("一日が全体的に良ければよし！みんな大体、自分が気分がよくなるために行動しているよね！w");
+						}
+					};
+					if(anacon.search("楽しい") > -1 || anacon.search("たのしい") > -1 || anacon.search("面白い") > -1 || anacon.search("おもしろい") > -1 || anacon.search("いいね") > -1  || anacon.search("w") > -1 || anacon.search("笑") > -1 || anacon.search("よーし") > -1 || anacon.search("あ") > -1 || anacon.search("い") > -1 || anacon.search("うん") > -1 || anacon.search("や") > -1 || anacon.search("ヤ") > -1) {
+						logik = Math.floor((Math.random() *30) + 1);
+						if(logik == 1 ){
+							osnik.push("ウンウン！☆");
+						}
+						if(logik == 2 ){
+							osnik.push("絶対詳しい（笑）");
+						}
+						if(logik == 3 ){
+							osnik.push("やったね☆");
+						}
+						if(logik == 4 ){
+							osnik.push("よーーし！いいぞいいぞぉ〜！");
+						}
+						if(logik == 5 ){
+							osnik.push("いいね〜www");
+						}
+						if(logik == 6 ){
+							osnik.push("ウンウン！いいかも！");
+						}
+						if(logik == 7 ){
+							osnik.push("おー！いいねー！");
+						}
+						if(logik == 8 ){
+							osnik.push("笑笑（本当に笑っています）");
+						}
+						if(logik == 9 ){
+							osnik.push("(^3^)いいねーw");
+						}
+						if(logik == 10 ){
+							osnik.push("オーライ！w");
+						}
+						if(logik == 11 ){
+							osnik.push("そうなんですか！w");
+						}
+						if(logik == 12 ){
+							osnik.push("息を吸って、、、からの吐いてー！");
+						}
+						if(logik == 13 ){
+							osnik.push("うお！w");
+						}
+						if(logik == 14 ){
+							osnik.push("おー！（期待）");
+						}
+						if(logik == 15 ){
+							osnik.push("わかるーーwww");
+						}
+						if(logik == 16 ){
+							osnik.push("いいね！");
+						}
+						if(logik == 17 ){
+							osnik.push("よし！外に出よう！");
+						}
+						if(logik == 18 ){
+							osnik.push("え？まじ！？");
+						}
+						if(logik == 19 ){
+							osnik.push("(^3^)グレート！");
+						}
+						if(logik == 20 ){
+							osnik.push("イエエーーーイw（ハイテンション）");
+						}
+						if(logik == 21 ){
+							osnik.push("君も一緒に叫んでみよう！「イエエエーーーイ」");
+						}
+						if(logik == 22 ){
+							osnik.push("<img src='http://icooon-mono.com/i/icon_10627/icon_106270.svg' height='20px'>");
+						}
+						if(logik == 23 ){
+							osnik.push("Good Job!");
+						}
+						if(logik == 24 ){
+							osnik.push("ナイス！w");
+						}
+						if(logik == 25 ){
+							osnik.push("いいよ！その調子！");
+						}
+						if(logik == 26 ){
+							osnik.push("あ！すごい！");
+						}
+						if(logik == 27 ){
+							osnik.push("ジャジャーン！");
+						}
+						if(logik == 28 ){
+							osnik.push("なんで？！すごい！w");
+						}
+						if(logik == 29 ){
+							osnik.push("うん！いいかもw");
+						}
+						if(logik == 30 ){
+							osnik.push("おーw");
+						}
+					};
+					if(anacon.search("何が") > -1 || anacon.search("何") > -1 || anacon.search("なに") || anacon.search("え") || anacon.search("ない")) {
+						logik = Math.floor((Math.random() * 10) + 1);
+						if(logik == 1 ){
+							osnik.push("何か間違えましたか？");
+						}
+						if(logik == 2 ){
+							osnik.push("ん？何かあった？");
+						}
+						if(logik == 3 ){
+							osnik.push("どうした？");
+						}
+						if(logik == 4 ){
+							osnik.push("大丈夫？僕何かした？");
+						}
+						if(logik == 5 ){
+							osnik.push("大丈夫かな？何か間違えたかな？");
+						}
+						if(logik == 6 ){
+							osnik.push("わからなかった？");
+						}
+						if(logik == 7 ){
+							osnik.push("ん？僕、なんかやらかした？");
+						}
+						if(logik == 8 ){
+							osnik.push("僕、何か忘れごとでもしたかな？");
+						}
+						if(logik == 9 ){
+							osnik.push("ムムム、、、何かがおかしい");
+						}
+						if(logik == 10 ){
+							osnik.push("何か間違えた気が。。。");
+						}
+					};
+					if(anacon.search("君") > -1 || anacon.search("あなた") > -1 || anacon.search("お前") > -1 || anacon.search("きみ") > -1 || anacon.search("おまえ") > -1) {
+						logik = Math.floor((Math.random() * 10) + 1);
+						if(logik == 1 ){
+							osnik.push("僕がですか？");
+						}
+						if(logik == 2 ){
+							osnik.push("うん。");
+						}
+						if(logik == 3 ){
+							osnik.push("はい、どうも。");
+						}
+						if(logik == 4 ){
+							osnik.push("ウンウン。");
+						}
+						if(logik == 5 ){
+							osnik.push("うむうむ。");
+						}
+						if(logik == 6 ){
+							osnik.push("聞いてますよ");
+						}
+						if(logik == 7 ){
+							osnik.push("はい！");
+						}
+						if(logik == 8 ){
+							osnik.push("僕だよね？");
+						}
+						if(logik == 9 ){
+							osnik.push("✌︎(-_-)");
+						}
+						if(logik == 10 ){
+							osnik.push("はい、");
+						}
+					};
+					var anonsk = osnik.join(' ');
+					document.getElementById('mesplug').innerHTML = anonsk;
 				}
 			</script>
 		</div>
