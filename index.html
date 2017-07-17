@@ -16,6 +16,8 @@
 				padding: 7px 0px 7px 0px;
 				background: #ffffff;
 				box-shadow: 0 1px 1px 0 rgba(0,0,0,0.14), 0 2px 1px -1px rgba(0,0,0,0.12), 0 1px 3px 0 rgba(0,0,0,0.2);
+				transition: 0.2s;
+				-webkit-transition: 0.2s;
 			}
 			#mescon {
 				background: #ffffff;
@@ -139,7 +141,7 @@
 			<div id="mai"><div id="aivis"></div><span style="margin-left: 10px" id="mesplug">...</span></div>
 		</div>
 		<div id="seleport">
-			<input type="text" id="mescon" onkeyup="sendcap()" placeholder="メッセージを入力">
+			<input type="text" id="mescon" onkeyup="sendcap()" onfocus="myFunction()" onblur="blurFunct(this)" placeholder="メッセージを入力">
 			<input type="submit" value="送信" class="btn" id="sendmescon" onclick="sendinit()">
 			<script>
 				setTimeout( function () {
@@ -148,6 +150,12 @@
 				setTimeout( function () {
 					document.getElementById("intpan").style.opacity = "1";
 				}, 1000)
+				function myFunction() {
+					document.getElementById("seleport").style.bottom = "300px";
+				}
+				function blurFunct() {
+					document.getElementById("seleport").style.bottom = "0px";	
+				}
 				function sendcap() {
 					var capvar = document.getElementById("mescon").value;
 					if( capvar.length > 0) {
