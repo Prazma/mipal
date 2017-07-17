@@ -69,7 +69,7 @@
 			}
 			#mesai {
 				position: fixed;
-				top: 70px;
+				top: 150px;
 				width: 100%;
 				opacity: 0;
 				transition: 0.2s;
@@ -90,18 +90,49 @@
 				-webkit-transition: 1s;
 			}
 			#aivis {
-				width: 50px;
-				height: 50px;
+				width: 43px;
+				height: 43px;
+				margin-top: 6px;
+				margin-left: 6px;
 				background: #ffffff;
 				border: solid;
-				border-width: 15px;
+				border-width: 7px;
 				border-color: #1578d1;
 				border-radius: 50%;
 			}
+			#aiport {
+				width: 86px;
+				height: 86px;
+				margin-top: 30px;
+				margin-left: auto;
+				margin-right: auto;
+				background: #ffffff;
+				border: solid;
+				border-width: 14px;
+				border-color: #1578d1;
+				border-radius: 50%;
+				opacity: 0;
+				transition: 1s;
+				-webkit-transition: 1s;
+			}
+			#intpan {
+				font-size: 20px;
+				opacity: 0;
+				transition: 1s;
+				-webkit-transition: 1s;
+			}
+			#di {
+				text-align: center;
+				transition: 0.1s;
+				-webkit-transition: 0.1s;
+			} 
 		</style>
 	</head>
 	<body>
-		<div id="messhou">
+		<div id="di">
+		<div id="aiport"></div><br>
+		<span id="intpan">悩み事、相談したいこと、または雑談をしましょう！</span></div>
+		<div id="messhou"> 
 			<div id="mes"><img src="https://cdn1.iconfinder.com/data/icons/user-pictures/100/unknown-512.png" height="50px";><br><span style="margin-left: 10px" id="mesdock"></span></div>
 		</div>
 		<div id="mesai">
@@ -111,6 +142,12 @@
 			<input type="text" id="mescon" onkeyup="sendcap()" placeholder="メッセージを入力">
 			<input type="submit" value="送信" class="btn" id="sendmescon" onclick="sendinit()">
 			<script>
+				setTimeout( function () {
+					document.getElementById("aiport").style.opacity = "1";
+				}, 500)
+				setTimeout( function () {
+					document.getElementById("intpan").style.opacity = "1";
+				}, 1000)
 				function sendcap() {
 					var capvar = document.getElementById("mescon").value;
 					if( capvar.length > 0) {
@@ -129,12 +166,22 @@
 					document.getElementById("sendmescon").style.background = "#adabae";
 					document.getElementById("sendmescon").style.borderColor = "#c4c2c5";
 					document.getElementById("sendmescon").disabled = true;
-					document.getElementById("mesdock").innerHTML = capvar;
-					document.getElementById("messhou").style.opacity = "1";
-
-document.getElementById("mesai").style.opacity = "1";
-					document.getElementById("mes").style.boxShadow = "4px 4px 8px #888888";
-					document.getElementById("mai").style.boxShadow = "4px 4px 8px #888888";
+					document.getElementById("mes").style.width = "0";
+					document.getElementById("mai").style.width = "0";
+					document.getElementById("mesdock").innerHTML = "";
+					document.getElementById("mesplug").innerHTML = "";
+					setTimeout( function () {
+						document.getElementById("mes").style.width = "80%";
+						document.getElementById("mai").style.width = "80%";
+					}, 500)
+					setTimeout( function () {
+						document.getElementById("mesdock").innerHTML = capvar;
+						document.getElementById("messhou").style.opacity = "1";
+						document.getElementById("di").style.opacity = "0";
+						document.getElementById("mesai").style.opacity = "1";
+						document.getElementById("mes").style.boxShadow = "4px 4px 8px #888888";
+						document.getElementById("mai").style.boxShadow = "4px 4px 8px #888888";
+					}, 1000)
 				}
 			</script>
 		</div>
